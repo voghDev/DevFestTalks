@@ -1,9 +1,12 @@
 package com.devfestgrx.talks.global.model;
 
+import org.parceler.Parcel;
+
 /**
  * Created by olmo on 17/11/16.
  */
 
+@Parcel
 public class Speaker {
     String name;
     String company;

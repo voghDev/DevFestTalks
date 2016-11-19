@@ -4,16 +4,30 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.devfestgrx.talks.R;
 import com.devfestgrx.talks.global.model.Talk;
+import com.devfestgrx.talks.ui.picasso.RoundedTransformation;
+import com.squareup.picasso.Picasso;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
  * Created by olmo on 19/11/16.
  */
 public class TalkRenderer extends ListEntityRenderer {
+    @Bind(R.id.talk_tv_title)
+    TextView tvTitle;
+
+    @Bind(R.id.talk_tv_description)
+    TextView tvDescription;
+
+    @Bind(R.id.talk_iv_thumbnail)
+    ImageView ivThumbnail;
+
     protected OnRowClicked listener = new EmptyListener();
 
     public TalkRenderer(Context ctx, OnRowClicked onRowClicked) {
@@ -41,13 +55,27 @@ public class TalkRenderer extends ListEntityRenderer {
         Talk obj = ((TalkListEntity) getContent()).getTalk();
         renderTitle(obj);
         renderSubtitle(obj);
+        renderThumbnail(obj);
+    }
+
+    private void renderThumbnail(Talk obj) {
+        if (obj.hasImage()) {
+            Picasso.with(context)
+                    .load(obj.getImageUrl())
+                    .transform(new RoundedTransformation())
+                    .into(ivThumbnail);
+        } else {
+            Picasso.with(context)
+                    .load(R.mipmap.ic_user_avatar)
+                    .into(ivThumbnail);
+        }
     }
 
     private void renderSubtitle(Talk obj) {
-
+        tvDescription.setText(obj.getText());
     }
 
     private void renderTitle(Talk obj) {
-
+        tvTitle.setText(obj.getTitle());
     }
 }

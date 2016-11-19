@@ -1,9 +1,12 @@
 package com.devfestgrx.talks.global.model;
 
+import org.parceler.Parcel;
+
 /**
  * Created by olmo on 17/11/16.
  */
 
+@Parcel
 public class Talk {
     String title;
     String place;
@@ -58,5 +61,9 @@ public class Talk {
 
     public void setPlace(String place) {
         this.place = place;
+    }
+
+    public boolean hasImage() {
+        return imageUrl != null && imageUrl.length() > 0;
     }
 }

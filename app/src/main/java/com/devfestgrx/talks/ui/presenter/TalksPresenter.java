@@ -26,8 +26,8 @@ public class TalksPresenter extends Presenter<TalksPresenter.MVPView, TalksPrese
         getTalks.getTalks(new GetTalks.Listener() {
             @Override
             public void onTalksCompleted(List<Talk> list) {
-                view.showTalks(list);
                 view.hideLoading();
+                view.showTalks(list);
             }
 
             @Override
@@ -59,6 +59,10 @@ public class TalksPresenter extends Presenter<TalksPresenter.MVPView, TalksPrese
 
     }
 
+    public void onTalkClicked(Talk talk) {
+        navigator.navigateToTalkActivity(talk);
+    }
+
     public interface MVPView extends AbsMVPView {
 
         void showLoading();
@@ -72,5 +76,6 @@ public class TalksPresenter extends Presenter<TalksPresenter.MVPView, TalksPrese
 
     public interface Navigator extends AbsNavigator {
 
+        void navigateToTalkActivity(Talk talk);
     }
 }

@@ -60,7 +60,8 @@ public abstract class ListEntityRenderer extends Renderer<ListEntity> {
     public abstract void render();
 
     public void setListener(OnRowClicked listener) {
-        if (listener != null)
+        if (listener != null) {
             this.listener = listener;
+        }
     }
 }
