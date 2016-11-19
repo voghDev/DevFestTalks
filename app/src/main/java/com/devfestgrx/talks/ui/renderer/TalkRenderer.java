@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by olmo on 19/11/16.
@@ -27,6 +28,11 @@ public class TalkRenderer extends ListEntityRenderer {
 
     @Bind(R.id.talk_iv_thumbnail)
     ImageView ivThumbnail;
+
+    @OnClick(R.id.talk_container)
+    public void onClickRootView(View v) {
+        listener.onRowBackgroundClicked(getContent());
+    }
 
     protected OnRowClicked listener = new EmptyListener();
 
