@@ -17,7 +17,7 @@ public class GetTalksMockImpl implements GetTalks {
         list.add(createMockTalk("9:00", "GDG DevFest Granada 2016 Opening & Keynote", "Salón de actos", "Keynote"));
         list.add(createMockTalk("9:30", "Wearables - Más allá de los smartwatches", "Salón de actos", "Los dispositivos \"vestibles\" están empezando a aparecer en el mercado. Los SmartWatches son los más difundidos y conocidos, y otros como las SmartGlasses van un poco más despacio. Pero que podemos encontrar en el mercado como tecnología \"vestible\". Hablaremos de los proyectos Jaqcuard y Verily en los que Google está involucrado y cual puede ser la opinión del mercado sobre toda esta tecnología."));
         list.add(createMockTalk("10:30", "Coffee Break", "Cafetería", "Coffee!"));
-        list.add(createMockTalk("11:00", "Tensorflow: la IA detrás de Google\n", "Aula 1.2", "Coffee!"));
+        list.add(createMockTalk("11:00", "Tensorflow: la IA detrás de Google", "Aula 1.2", "Coffee!"));
         list.add(createMockTalk("11:00", "¿Cómo trabaja un pro de Android? (O como trabajaría yo si fuera uno)", "Salón de actos", "Coffee!"));
         list.add(createMockTalk("12:00", "Material Design - A Glimpse Into the Future", "Salón de actos", "Coffee!"));
         list.add(createMockTalk("13:00", "Polymer: el fin a tus problemas con el front-end", "Salón de actos", "Coffee!"));
