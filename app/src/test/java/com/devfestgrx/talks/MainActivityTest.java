@@ -5,12 +5,14 @@ import android.content.Context;
 import com.devfestgrx.talks.global.App;
 import com.devfestgrx.talks.global.di.MainModule;
 import com.devfestgrx.talks.global.di.RootComponent;
+import com.devfestgrx.talks.global.model.Talk;
 import com.devfestgrx.talks.ui.presenter.TalksPresenter;
 import com.devfestgrx.talks.usecase.GetTalks;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import static junit.framework.Assert.assertNotNull;
@@ -86,5 +88,20 @@ public class MainActivityTest {
         presenter.initialize();
 
         verify(mockGetTalks, times(1)).getTalks(any(GetTalks.Listener.class));
+    }
+
+    @Test
+    public void shouldNavigateToDetailActivityWhenTapMethodIsCalled() throws Exception {
+        presenter = givenAMockedPresenter();
+
+        TalksPresenter.Navigator mockNavigator = Mockito.mock(TalksPresenter.Navigator.class);
+
+        presenter.setNavigator(mockNavigator);
+        presenter.initialize();
+
+        Talk t = new Talk();
+        presenter.onTalkClicked(t);
+
+        verify(mockNavigator, times(1)).navigateToTalkActivity(t);
     }
 }
