@@ -1,6 +1,7 @@
 package com.devfestgrx.talks.ui.activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +50,7 @@ public class TalksActivity extends BaseActivity implements TalksPresenter.MVPVie
                 new ListEntityRendererBuilder(this, this),
                 new ListAdapteeCollection<ListEntity>(new ArrayList<ListEntity>()));
         recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         presenter = new TalksPresenter(this, getTalks);
         presenter.setView(this);
