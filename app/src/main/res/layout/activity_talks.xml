@@ -14,4 +14,10 @@
         android:id="@+id/talks_recyclerView"
         style="@style/FullScreen" />
 
+    <ProgressBar
+        android:id="@+id/talks_pbr_loading"
+        style="@style/Element"
+        android:layout_centerInParent="true"
+        android:indeterminate="true" />
+
 </RelativeLayout>
