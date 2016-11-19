@@ -29,6 +29,10 @@ public class App extends Application {
         component.inject(this);
     }
 
+    public MainModule getMainModule() {
+        return mainModule;
+    }
+
     public RootComponent getComponent() {
         return component;
     }
