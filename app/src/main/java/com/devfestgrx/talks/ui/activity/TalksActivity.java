@@ -25,12 +25,14 @@ public class TalksActivity extends BaseActivity implements TalksPresenter.MVPVie
 
     TalksPresenter presenter;
 
-    //@Inject
+    @Inject
     GetTalks getTalks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getComponent().inject(this);
 
         presenter = new TalksPresenter(this, getTalks);
         presenter.setView(this);
@@ -64,5 +66,6 @@ public class TalksActivity extends BaseActivity implements TalksPresenter.MVPVie
     @Override
     public void showTalks(List<Talk> list) {
         // TODO implement
+        list.size(); // Debug entry point
     }
 }

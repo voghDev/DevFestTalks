@@ -18,6 +18,9 @@ package com.devfestgrx.talks.ui.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.devfestgrx.talks.global.App;
+import com.devfestgrx.talks.global.di.RootComponent;
+
 import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -33,4 +36,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected abstract int getLayoutId();
+
+    protected RootComponent getComponent() {
+        return ((App) getApplicationContext()).getComponent();
+    }
 }
