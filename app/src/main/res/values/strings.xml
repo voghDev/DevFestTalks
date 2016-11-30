@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Talks</string>
+    <string name="loading">Cargando</string>
 </resources>
