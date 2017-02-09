@@ -14,6 +14,7 @@ public class Talk {
     String imageUrl;
     Speaker speaker;
     String time;
+    boolean liked;
 
     public String getTitle() {
         return title;
@@ -65,5 +66,13 @@ public class Talk {
 
     public boolean hasImage() {
         return imageUrl != null && imageUrl.length() > 0;
+    }
+
+    public boolean isLiked() {
+        return liked;
+    }
+
+    public void setLiked(boolean liked) {
+        this.liked = liked;
     }
 }
