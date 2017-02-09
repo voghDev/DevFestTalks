@@ -20,8 +20,8 @@ import javax.inject.Inject;
 import butterknife.Bind;
 import butterknife.OnClick;
 
-public class TalkDetailActivity extends BaseActivity implements TalkDetailPresenter.MVPView, TalkDetailPresenter.Navigator {
-
+public class TalkDetailActivity extends BaseActivity
+        implements TalkDetailPresenter.MVPView, TalkDetailPresenter.Navigator {
 
     @Bind(R.id.talk_detail_ibtn_like)
     ImageButton ibtnLike;

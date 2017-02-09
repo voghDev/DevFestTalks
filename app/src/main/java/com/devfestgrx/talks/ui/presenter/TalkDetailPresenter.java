@@ -41,8 +41,9 @@ public class TalkDetailPresenter extends Presenter<TalkDetailPresenter.MVPView, 
     }
 
     public void onTalkReceivedFromExtras(Talk talk) {
-        if (talk == null)
+        if (talk == null) {
             return;
+        }
 
         this.talk = talk;
     }
@@ -50,10 +51,11 @@ public class TalkDetailPresenter extends Presenter<TalkDetailPresenter.MVPView, 
     public void onLikeButtonClicked() {
         talk.setLiked(!talk.isLiked());
 
-        if (talk.isLiked())
+        if (talk.isLiked()) {
             view.showTalkLiked();
-        else
+        } else {
             view.showTalkNotLiked();
+        }
 
         //emitTalkStatusChange();
     }

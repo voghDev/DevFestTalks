@@ -15,7 +15,6 @@ import com.devfestgrx.talks.ui.renderer.ListEntity;
 import com.devfestgrx.talks.ui.renderer.ListEntityRenderer;
 import com.devfestgrx.talks.ui.renderer.ListEntityRendererBuilder;
 import com.devfestgrx.talks.ui.renderer.TalkListEntity;
-import com.devfestgrx.talks.usecase.GetTalks;
 import com.pedrogomez.renderers.ListAdapteeCollection;
 import com.pedrogomez.renderers.RVRendererAdapter;
 
