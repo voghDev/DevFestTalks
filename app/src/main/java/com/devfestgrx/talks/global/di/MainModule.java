@@ -28,7 +28,7 @@ public class MainModule {
     }
 
     @Provides
-    public GetTalks provideGetTalks() {
+    public TalksRepository provideGetTalks() {
         return talkRepository;
     }
 }

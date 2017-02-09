@@ -9,6 +9,7 @@ import android.widget.ProgressBar;
 
 import com.devfestgrx.talks.R;
 import com.devfestgrx.talks.global.model.Talk;
+import com.devfestgrx.talks.repository.TalksRepository;
 import com.devfestgrx.talks.ui.presenter.TalksPresenter;
 import com.devfestgrx.talks.ui.renderer.ListEntity;
 import com.devfestgrx.talks.ui.renderer.ListEntityRenderer;
@@ -37,7 +38,7 @@ public class TalksActivity extends BaseActivity implements TalksPresenter.MVPVie
     RVRendererAdapter<ListEntity> adapter;
 
     @Inject
-    GetTalks getTalks;
+    TalksRepository getTalks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

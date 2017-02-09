@@ -48,11 +48,11 @@ public class TalkDetailPresenter extends Presenter<TalkDetailPresenter.MVPView, 
     }
 
     public void onLikeButtonClicked() {
-        talk.setLiked(true);
 
         Flowable.create(new FlowableOnSubscribe<Talk>() {
             @Override
             public void subscribe(FlowableEmitter<Talk> e) throws Exception {
+                talk.setLiked(true);
                 e.onNext(talk);
             }
         }, BackpressureStrategy.BUFFER);
