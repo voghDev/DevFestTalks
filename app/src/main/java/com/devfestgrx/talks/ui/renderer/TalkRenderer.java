@@ -37,8 +37,6 @@ public class TalkRenderer extends ListEntityRenderer {
         listener.onRowBackgroundClicked(getContent());
     }
 
-    protected OnRowClicked listener = new EmptyListener();
-
     public TalkRenderer(Context ctx, OnRowClicked onRowClicked) {
         context = ctx.getApplicationContext();
         setListener(onRowClicked);

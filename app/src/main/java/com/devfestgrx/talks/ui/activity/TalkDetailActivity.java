@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import com.devfestgrx.talks.R;
 import com.devfestgrx.talks.global.CT;
@@ -16,12 +17,14 @@ import org.parceler.Parcels;
 
 import javax.inject.Inject;
 
+import butterknife.Bind;
 import butterknife.OnClick;
 
 public class TalkDetailActivity extends BaseActivity implements TalkDetailPresenter.MVPView, TalkDetailPresenter.Navigator {
-    Talk talk;
 
-    TalkDetailPresenter presenter;
+
+    @Bind(R.id.talk_detail_ibtn_like)
+    ImageButton ibtnLike;
 
     @OnClick(R.id.talk_detail_ibtn_like)
     public void onClickLike(View v) {
@@ -30,6 +33,9 @@ public class TalkDetailActivity extends BaseActivity implements TalkDetailPresen
 
     @Inject
     TalksRepository talksRepository;
+
+    TalkDetailPresenter presenter;
+    Talk talk;
 
     @Override
     protected int getLayoutId() {
@@ -41,6 +47,8 @@ public class TalkDetailActivity extends BaseActivity implements TalkDetailPresen
         super.onCreate(savedInstanceState, persistentState);
 
         talk = Parcels.unwrap(getIntent().getParcelableExtra(CT.EXTRA_TALK));
+
+        getComponent().inject(this);
 
         presenter = new TalkDetailPresenter(this, talksRepository);
         presenter.setView(this);
@@ -55,5 +63,15 @@ public class TalkDetailActivity extends BaseActivity implements TalkDetailPresen
         Intent intent = new Intent(ctx, TalkDetailActivity.class);
         intent.putExtra(CT.EXTRA_TALK, Parcels.wrap(talk));
         ctx.startActivity(intent);
+    }
+
+    @Override
+    public void showTalkLiked() {
+        ibtnLike.setImageResource(R.mipmap.ic_star_fill);
+    }
+
+    @Override
+    public void showTalkNotLiked() {
+        ibtnLike.setImageResource(R.mipmap.ic_star);
     }
 }

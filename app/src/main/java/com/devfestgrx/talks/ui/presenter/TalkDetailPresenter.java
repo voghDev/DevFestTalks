@@ -48,11 +48,20 @@ public class TalkDetailPresenter extends Presenter<TalkDetailPresenter.MVPView, 
     }
 
     public void onLikeButtonClicked() {
+        talk.setLiked(!talk.isLiked());
 
+        if (talk.isLiked())
+            view.showTalkLiked();
+        else
+            view.showTalkNotLiked();
+
+        //emitTalkStatusChange();
+    }
+
+    private void emitTalkStatusChange() {
         Flowable.create(new FlowableOnSubscribe<Talk>() {
             @Override
             public void subscribe(FlowableEmitter<Talk> e) throws Exception {
-                talk.setLiked(true);
                 e.onNext(talk);
             }
         }, BackpressureStrategy.BUFFER);
@@ -60,6 +69,9 @@ public class TalkDetailPresenter extends Presenter<TalkDetailPresenter.MVPView, 
 
     public interface MVPView extends AbsMVPView {
 
+        void showTalkLiked();
+
+        void showTalkNotLiked();
     }
 
     public interface Navigator extends AbsNavigator {
