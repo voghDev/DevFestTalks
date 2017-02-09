@@ -1,7 +1,6 @@
 package com.devfestgrx.talks.ui.renderer;
 
 import android.content.Context;
-import android.database.Observable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +15,6 @@ import com.squareup.picasso.Picasso;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.Flowable;
-import io.reactivex.functions.Consumer;
 
 /**
  * Created by olmo on 19/11/16.
@@ -31,6 +28,9 @@ public class TalkRenderer extends ListEntityRenderer {
 
     @Bind(R.id.talk_iv_thumbnail)
     ImageView ivThumbnail;
+
+    @Bind(R.id.talk_iv_liked)
+    ImageView ivLiked;
 
     @OnClick(R.id.talk_container)
     public void onClickRootView(View v) {
@@ -63,13 +63,11 @@ public class TalkRenderer extends ListEntityRenderer {
         renderTitle(obj);
         renderSubtitle(obj);
         renderThumbnail(obj);
+        renderLikeIcon(obj);
+    }
 
-        Flowable.just("Like").subscribe(new Consumer<String>() {
-            @Override
-            public void accept(String s) throws Exception {
-
-            }
-        });
+    private void renderLikeIcon(Talk obj) {
+        ivLiked.setImageResource(obj.isLiked() ? R.mipmap.ic_star_fill : R.mipmap.ic_star);
     }
 
     private void renderThumbnail(Talk obj) {

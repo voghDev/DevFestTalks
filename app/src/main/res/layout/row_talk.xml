@@ -17,8 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dip"
-        android:layout_toRightOf="@+id/talk_iv_thumbnail"
         android:layout_marginTop="16dp"
+        android:layout_toRightOf="@+id/talk_iv_thumbnail"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="@string/loading"
@@ -31,10 +31,19 @@
         android:layout_alignLeft="@+id/talk_tv_title"
         android:layout_below="@+id/talk_tv_title"
         android:layout_marginTop="8dp"
-        android:text="@string/loading"
-        android:maxLines="1"
         android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/loading"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/devfest_blue" />
+
+    <ImageView
+        android:id="@+id/talk_iv_liked"
+        style="@style/Element"
+        android:src="@mipmap/ic_star"
+        android:layout_alignTop="@+id/talk_tv_description"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        />
 
 </RelativeLayout>
