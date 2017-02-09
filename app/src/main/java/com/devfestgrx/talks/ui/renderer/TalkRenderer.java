@@ -1,6 +1,7 @@
 package com.devfestgrx.talks.ui.renderer;
 
 import android.content.Context;
+import android.database.Observable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import com.squareup.picasso.Picasso;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Flowable;
+import io.reactivex.functions.Consumer;
 
 /**
  * Created by olmo on 19/11/16.
@@ -62,6 +65,13 @@ public class TalkRenderer extends ListEntityRenderer {
         renderTitle(obj);
         renderSubtitle(obj);
         renderThumbnail(obj);
+
+        Flowable.just("Like").subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+
+            }
+        });
     }
 
     private void renderThumbnail(Talk obj) {
