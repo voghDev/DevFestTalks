@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.view.View;
 
 import com.devfestgrx.talks.R;
 import com.devfestgrx.talks.global.CT;
@@ -11,10 +12,14 @@ import com.devfestgrx.talks.global.model.Talk;
 
 import org.parceler.Parcels;
 
-/**
- * Created by olmo on 17/11/16.
- */
+import butterknife.OnClick;
+
 public class TalkDetailActivity extends BaseActivity {
+    @OnClick(R.id.talk_detail_ibtn_like)
+    public void onClickLike(View v) {
+        presenter.onLikeClicked();
+    }
+
     Talk talk;
 
     @Override

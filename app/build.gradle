@@ -51,6 +51,7 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile 'com.android.support:recyclerview-v7:23.1.1'
 
+    compile "io.reactivex.rxjava2:rxjava:2.0.5"
     compile 'com.github.pedrovgs:renderers:2.0.3'
     compile 'es.voghdev.progressbuttonview:ProgressButtonView:0.7.9'
     compile 'org.parceler:parceler-api:1.1.1'
