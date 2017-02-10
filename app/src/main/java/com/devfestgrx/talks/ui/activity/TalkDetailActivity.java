@@ -17,13 +17,13 @@ import org.parceler.Parcels;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 
 public class TalkDetailActivity extends BaseActivity
         implements TalkDetailPresenter.MVPView, TalkDetailPresenter.Navigator {
 
-    @Bind(R.id.talk_detail_ibtn_like)
+    @BindView(R.id.talk_detail_ibtn_like)
     ImageButton ibtnLike;
 
     @OnClick(R.id.talk_detail_ibtn_like)

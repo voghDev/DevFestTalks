@@ -3,7 +3,6 @@ package com.devfestgrx.talks.ui.activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -23,14 +22,15 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
-public class TalksActivity extends BaseActivity implements TalksPresenter.MVPView, TalksPresenter.Navigator,
+public class TalksActivity extends BaseActivity
+        implements TalksPresenter.MVPView, TalksPresenter.Navigator,
         ListEntityRenderer.OnRowClicked {
-    @Bind(R.id.talks_recyclerView)
+    @BindView(R.id.talks_recyclerView)
     RecyclerView recyclerView;
 
-    @Bind(R.id.talks_pbr_loading)
+    @BindView(R.id.talks_pbr_loading)
     ProgressBar pbrLoading;
 
     TalksPresenter presenter;
@@ -45,10 +45,8 @@ public class TalksActivity extends BaseActivity implements TalksPresenter.MVPVie
 
         getComponent().inject(this);
 
-        adapter = new RVRendererAdapter<ListEntity>(
-                LayoutInflater.from(this),
-                new ListEntityRendererBuilder(this, this),
-                new ListAdapteeCollection<ListEntity>(new ArrayList<ListEntity>()));
+        adapter = new RVRendererAdapter<>(new ListEntityRendererBuilder(this, this),
+                new ListAdapteeCollection<>(new ArrayList<ListEntity>()));
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
