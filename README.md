@@ -13,8 +13,8 @@ Branches
 Contributors
 ------------
 
-Olmo Gallegos Hernández ([@voghDev][2])
-Juan Ramón González González ([@jrgonzalezg][3])
+* Olmo Gallegos Hernández  - [@voghDev][2]
+* Juan Ramón González González - [@jrgonzalezg][3]
 
 
 [1]: https://devfest-grx.firebaseapp.com/
