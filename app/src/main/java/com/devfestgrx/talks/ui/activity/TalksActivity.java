@@ -3,12 +3,12 @@ package com.devfestgrx.talks.ui.activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ProgressBar;
 
 import com.devfestgrx.talks.R;
 import com.devfestgrx.talks.global.model.Talk;
+import com.devfestgrx.talks.repository.TalksRepository;
 import com.devfestgrx.talks.ui.presenter.TalksPresenter;
 import com.devfestgrx.talks.ui.renderer.ListEntity;
 import com.devfestgrx.talks.ui.renderer.ListEntityRenderer;
@@ -23,21 +23,22 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
+
 
 public class TalksActivity extends BaseActivity implements TalksPresenter.MVPView, TalksPresenter.Navigator,
         ListEntityRenderer.OnRowClicked {
-    @Bind(R.id.talks_recyclerView)
+    @BindView(R.id.talks_recyclerView)
     RecyclerView recyclerView;
 
-    @Bind(R.id.talks_pbr_loading)
+    @BindView(R.id.talks_pbr_loading)
     ProgressBar pbrLoading;
 
     TalksPresenter presenter;
     RVRendererAdapter<ListEntity> adapter;
 
     @Inject
-    GetTalks getTalks;
+    TalksRepository talksRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,14 +46,12 @@ public class TalksActivity extends BaseActivity implements TalksPresenter.MVPVie
 
         getComponent().inject(this);
 
-        adapter = new RVRendererAdapter<ListEntity>(
-                LayoutInflater.from(this),
-                new ListEntityRendererBuilder(this, this),
-                new ListAdapteeCollection<ListEntity>(new ArrayList<ListEntity>()));
+        adapter = new RVRendererAdapter<>(new ListEntityRendererBuilder(this, this),
+                new ListAdapteeCollection<>(new ArrayList<ListEntity>()));
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        presenter = new TalksPresenter(this, getTalks);
+        presenter = new TalksPresenter(this, talksRepository);
         presenter.setView(this);
         presenter.setNavigator(this);
 

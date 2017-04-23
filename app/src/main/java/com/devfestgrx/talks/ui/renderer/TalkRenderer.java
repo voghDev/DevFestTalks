@@ -12,7 +12,7 @@ import com.devfestgrx.talks.global.model.Talk;
 import com.devfestgrx.talks.ui.picasso.RoundedTransformation;
 import com.squareup.picasso.Picasso;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -20,13 +20,13 @@ import butterknife.OnClick;
  * Created by olmo on 19/11/16.
  */
 public class TalkRenderer extends ListEntityRenderer {
-    @Bind(R.id.talk_tv_title)
+    @BindView(R.id.talk_tv_title)
     TextView tvTitle;
 
-    @Bind(R.id.talk_tv_description)
+    @BindView(R.id.talk_tv_description)
     TextView tvDescription;
 
-    @Bind(R.id.talk_iv_thumbnail)
+    @BindView(R.id.talk_iv_thumbnail)
     ImageView ivThumbnail;
 
     @OnClick(R.id.talk_container)
