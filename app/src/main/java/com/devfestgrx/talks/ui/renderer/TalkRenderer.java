@@ -34,16 +34,9 @@ public class TalkRenderer extends ListEntityRenderer {
         listener.onRowBackgroundClicked(getContent());
     }
 
-    protected OnRowClicked listener = new EmptyListener();
-
     public TalkRenderer(Context ctx, OnRowClicked onRowClicked) {
         context = ctx.getApplicationContext();
         setListener(onRowClicked);
-    }
-
-    @Override
-    protected void setUpView(View rootView) {
-        ButterKnife.bind(this, rootView);
     }
 
     @Override
